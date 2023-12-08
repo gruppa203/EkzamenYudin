@@ -1,0 +1,9 @@
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\Yudin203.csproj.AssemblyReference.cache
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\MainWindow.g.cs
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\Page\Autorization.g.cs
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\Page\Tovar.g.cs
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\App.g.cs
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\Yudin203_Content.g.cs
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\Yudin203_MarkupCompile.cache
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\Yudin203_MarkupCompile.lref
+C:\Users\Преподаватель\source\repos\Yudin203\Yudin203\obj\Debug\Page\Avtorizaition.g.cs

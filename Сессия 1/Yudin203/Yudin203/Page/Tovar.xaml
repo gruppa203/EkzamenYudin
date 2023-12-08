@@ -1,0 +1,29 @@
+﻿<Page x:Class="Yudin203.Page.Tovar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Yudin203.Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1150"
+      Title="Tovar">
+
+    <Grid>
+        <DataGrid Background="AntiqueWhite" x:Name="DGridTovar" SelectionChanged="DGridTovar_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Артикул" Binding="{Binding Artikul}"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Nazvanie}"/>
+                <DataGridTextColumn Header="Единициа измерения" Binding="{Binding Izmerenie}"/>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Stoimost}"/>
+                <DataGridTextColumn Header="Максимальная скидка" Binding="{Binding Max_skidka}"/>
+                <DataGridTextColumn Header="Производитель" Binding="{Binding Proizvoditel}"/>
+                <DataGridTextColumn Header="Поставщик" Binding="{Binding Postavshik}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding NazvanieKategorii.Kategoriya }"/>
+                <DataGridTextColumn Header="Действующая скидка" Binding="{Binding Deistvuyushaya_skidka}" />
+                <DataGridTextColumn Header="Количество на складе" Binding="{Binding Kolvo_na_sklade}"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Opisanie}"/>
+                <DataGridTextColumn Header="Изображение" Binding="{Binding Izobrazhenie}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Bd_YudinModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Kategoriya">
+    <Key>
+      <PropertyRef Name="codeKategorii" />
+    </Key>
+    <Property Name="codeKategorii" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazvanieKategorii" Type="nvarchar" MaxLength="70" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="codeRole" />
+    </Key>
+    <Property Name="codeRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameRole" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tovar">
+    <Key>
+      <PropertyRef Name="Artikul" />
+    </Key>
+    <Property Name="Artikul" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nazvanie" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Izmerenie" Type="nvarchar" MaxLength="5" />
+    <Property Name="Stoimost" Type="int" Nullable="false" />
+    <Property Name="Max_skidka" Type="int" />
+    <Property Name="Proizvoditel" Type="nvarchar" MaxLength="30" />
+    <Property Name="Postavshik" Type="nvarchar" MaxLength="30" />
+    <Property Name="Kategoriya" Type="int" Nullable="false" />
+    <Property Name="Deistvuyushaya_skidka" Type="int" />
+    <Property Name="Kolvo_na_sklade" Type="int" />
+    <Property Name="Opisanie" Type="nvarchar" MaxLength="150" />
+    <Property Name="Izobrazhenie" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="int" Nullable="false" />
+    <Property Name="familiya" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImyaOtchestvo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Parol" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="codeRole" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Tovar_Kategoriya">
+    <End Role="Kategoriya" Type="Self.Kategoriya" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriya">
+        <PropertyRef Name="codeKategorii" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="Kategoriya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="codeRole" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="codeRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище Bd_YudinModelContainer">
+    <EntitySet Name="Kategoriya" EntityType="Self.Kategoriya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tovar" EntityType="Self.Tovar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tovar_Kategoriya" Association="Self.FK_Tovar_Kategoriya">
+      <End Role="Kategoriya" EntitySet="Kategoriya" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

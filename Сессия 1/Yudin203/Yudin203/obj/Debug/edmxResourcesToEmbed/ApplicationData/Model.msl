@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Bd_YudinModelContainer" CdmEntityContainer="Bd_YudinEntities2">
+    <EntitySetMapping Name="Kategoriya">
+      <EntityTypeMapping TypeName="Bd_YudinModel.Kategoriya">
+        <MappingFragment StoreEntitySet="Kategoriya">
+          <ScalarProperty Name="codeKategorii" ColumnName="codeKategorii" />
+          <ScalarProperty Name="NazvanieKategorii" ColumnName="NazvanieKategorii" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="Bd_YudinModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="codeRole" ColumnName="codeRole" />
+          <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tovar">
+      <EntityTypeMapping TypeName="Bd_YudinModel.Tovar">
+        <MappingFragment StoreEntitySet="Tovar">
+          <ScalarProperty Name="Artikul" ColumnName="Artikul" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="Izmerenie" ColumnName="Izmerenie" />
+          <ScalarProperty Name="Stoimost" ColumnName="Stoimost" />
+          <ScalarProperty Name="Max_skidka" ColumnName="Max_skidka" />
+          <ScalarProperty Name="Proizvoditel" ColumnName="Proizvoditel" />
+          <ScalarProperty Name="Postavshik" ColumnName="Postavshik" />
+          <ScalarProperty Name="Kategoriya" ColumnName="Kategoriya" />
+          <ScalarProperty Name="Deistvuyushaya_skidka" ColumnName="Deistvuyushaya_skidka" />
+          <ScalarProperty Name="Kolvo_na_sklade" ColumnName="Kolvo_na_sklade" />
+          <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+          <ScalarProperty Name="Izobrazhenie" ColumnName="Izobrazhenie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Bd_YudinModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="familiya" ColumnName="familiya" />
+          <ScalarProperty Name="ImyaOtchestvo" ColumnName="ImyaOtchestvo" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Parol" ColumnName="Parol" />
+          <ScalarProperty Name="codeRole" ColumnName="codeRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

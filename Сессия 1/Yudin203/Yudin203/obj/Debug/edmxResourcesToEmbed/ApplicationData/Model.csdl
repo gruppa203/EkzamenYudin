@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Bd_YudinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kategoriya">
+    <Key>
+      <PropertyRef Name="codeKategorii" />
+    </Key>
+    <Property Name="codeKategorii" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NazvanieKategorii" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Tovar" Relationship="Self.FK_Tovar_Kategoriya" FromRole="Kategoriya" ToRole="Tovar" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="codeRole" />
+    </Key>
+    <Property Name="codeRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameRole" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Tovar">
+    <Key>
+      <PropertyRef Name="Artikul" />
+    </Key>
+    <Property Name="Artikul" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nazvanie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Izmerenie" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Stoimost" Type="Int32" Nullable="false" />
+    <Property Name="Max_skidka" Type="Int32" />
+    <Property Name="Proizvoditel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Postavshik" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Kategoriya" Type="Int32" Nullable="false" />
+    <Property Name="Deistvuyushaya_skidka" Type="Int32" />
+    <Property Name="Kolvo_na_sklade" Type="Int32" />
+    <Property Name="Opisanie" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Izobrazhenie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kategoriya1" Relationship="Self.FK_Tovar_Kategoriya" FromRole="Tovar" ToRole="Kategoriya" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <Property Name="familiya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImyaOtchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Parol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="codeRole" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_Tovar_Kategoriya">
+    <End Role="Kategoriya" Type="Self.Kategoriya" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriya">
+        <PropertyRef Name="codeKategorii" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="Kategoriya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="codeRole" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="codeRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Bd_YudinEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kategoriya" EntityType="Self.Kategoriya" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Tovar" EntityType="Self.Tovar" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Tovar_Kategoriya" Association="Self.FK_Tovar_Kategoriya">
+      <End Role="Kategoriya" EntitySet="Kategoriya" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
